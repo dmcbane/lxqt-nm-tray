@@ -1,0 +1,3 @@
+[submodule "third_party/nm-tray"]
+	path = third_party/nm-tray
+	url = https://github.com/palinek/nm-tray.git

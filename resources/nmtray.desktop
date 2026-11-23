@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=LXQtPanel/Plugin
+Icon=network-wireless
+Name=Network (nm-tray)
+Comment=NetworkManager menu from nm-tray as a native panel plugin; menus open in place on Wayland
