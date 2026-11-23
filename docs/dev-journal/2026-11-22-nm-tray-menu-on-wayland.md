@@ -27,3 +27,7 @@ panel's top-level window as the menu's transient parent (forcing native handles 
   then run `LXQTPANEL_PLUGIN_PATH=$PWD/build LXQT_PANEL_PLUGINS_DIR=<dir with nmtray.desktop>
   lxqt-panel -c <conf>`. Check `/proc/<pid>/maps` for `libnmtray.so`, and use `pgrep -n -x
   lxqt-panel`, not `pgrep -f`, which matches the `timeout` wrapper.
+- Adding the plugin by editing `~/.config/lxqt/panel.conf`: putting `nmtray` in `plugins=`
+  isn't enough. The panel silently skips any entry with no `[<name>]` section containing
+  `type=<desktop id>`. Built-in plugins get that from `/etc/xdg/lxqt/panel.conf`. Stop the
+  panel before editing, or it may overwrite the file.
