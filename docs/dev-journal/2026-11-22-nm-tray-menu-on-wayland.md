@@ -13,6 +13,8 @@ the panel's statusnotifier plugin renders it itself via DBusMenu (not yet confir
 panel's top-level window as the menu's transient parent (forcing native handles with
 `winId()` first) and pops it at `ILXQtPanelPlugin::calculatePopupWindowPos()`.
 
+**Verified:** 2026-11-22, by hand on sway with a bottom panel: the left-click menu opens next to the icon.
+
 **Gotchas found on the way:**
 - nm-tray uses a default `QSettings{}`. Inside the panel that resolves to the panel's config,
   so every settings access names `("nm-tray", "nm-tray")` explicitly (`NmTraySettings`).
