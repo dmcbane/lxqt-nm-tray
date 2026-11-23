@@ -14,6 +14,9 @@ window and positioned by the panel, so it opens next to the icon.
 The networking logic (model, connection/Wi-Fi menu, info dialogs) is nm-tray's own code,
 built from the pinned submodule in `third_party/nm-tray`. Only the tray-icon glue is replaced.
 
+The submodule currently points to a fork branch carrying an SSID-escaping fix
+([palinek/nm-tray#77](https://github.com/palinek/nm-tray/pull/77)); it returns to upstream once that is merged.
+
 ## Use
 
 - **Left click**: connection / Wi-Fi menu

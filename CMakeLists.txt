@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(lxqt-nm-tray VERSION 0.1.1 LANGUAGES CXX)
+project(lxqt-nm-tray VERSION 0.1.2 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -45,7 +45,7 @@ add_library(nmtray_core STATIC
 target_include_directories(nmtray_core PUBLIC ${NM_TRAY_DIR}/src)
 target_compile_definitions(nmtray_core PUBLIC
     QT_NO_SIGNALS_SLOTS_KEYWORDS
-    NM_TRAY_VERSION="0.5.1"
+    NM_TRAY_VERSION="0.5.1+escape"
 )
 target_link_libraries(nmtray_core PUBLIC Qt6::Widgets Qt6::Gui KF6::NetworkManagerQt)
 

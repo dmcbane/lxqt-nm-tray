@@ -1,3 +1,4 @@
 [submodule "third_party/nm-tray"]
 	path = third_party/nm-tray
-	url = https://github.com/palinek/nm-tray.git
+	url = https://github.com/dmcbane/nm-tray.git
+	branch = escape-connection-names

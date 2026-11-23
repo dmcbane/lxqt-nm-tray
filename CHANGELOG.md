@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.2] - 2026-11-22
+
+### Fixed
+- Wi-Fi password prompt: the SSID is now HTML-escaped (the prompt's QLabel auto-detects rich
+  text). The fix is in nm-tray's code, so the submodule now tracks the
+  `escape-connection-names` branch of https://github.com/dmcbane/nm-tray (upstream master plus
+  palinek/nm-tray#77). Switch back to upstream once that PR is merged.
+
+### Added
+- Test that fails if the submodule is moved to a revision without the password-prompt escaping.
+
 ## [0.1.1] - 2026-11-22
 
 ### Fixed
