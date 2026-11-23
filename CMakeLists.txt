@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.18)
 
-project(lxqt-nm-tray VERSION 0.1.0 LANGUAGES CXX)
+project(lxqt-nm-tray VERSION 0.1.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -53,6 +53,7 @@ target_link_libraries(nmtray_core PUBLIC Qt6::Widgets Qt6::Gui KF6::NetworkManag
 add_library(lxqtnmtray_logic STATIC
     src/popupanchor.cpp
     src/nmtraysettings.cpp
+    src/statustext.cpp
 )
 target_include_directories(lxqtnmtray_logic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_definitions(lxqtnmtray_logic PUBLIC QT_NO_SIGNALS_SLOTS_KEYWORDS)

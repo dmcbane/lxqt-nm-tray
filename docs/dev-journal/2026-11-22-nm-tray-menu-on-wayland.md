@@ -6,8 +6,8 @@ connection menu in the wrong spot, or nothing appears.
 **Root cause:** nm-tray (`src/tray.cpp`, `Tray::onActivated`) does
 `menu->popup(QCursor::pos())`. Wayland clients can't read the global pointer position, and
 the menu has no transient parent (nm-tray owns no window), so there is no surface for the
-compositor to position the `xdg_popup` against. The right-click menu is unaffected because
-the panel's statusnotifier plugin renders it itself via DBusMenu.
+compositor to position the `xdg_popup` against. The right-click menu is *probably* unaffected, since
+the panel's statusnotifier plugin renders it itself via DBusMenu (not yet confirmed).
 
 **Fix:** Run nm-tray's code inside lxqt-panel as a plugin. `popup::showAnchored()` sets the
 panel's top-level window as the menu's transient parent (forcing native handles with

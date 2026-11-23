@@ -11,6 +11,7 @@
 #include <NetworkManagerQt/Manager>
 
 #include "nmmodel.h"
+#include "statustext.h"
 
 namespace
 {
@@ -107,9 +108,10 @@ void NmTrayStatus::updateState(const QModelIndex &index, bool removing)
 
     if (mPrimaryConnection.isValid())
     {
-        setToolTip(trTray("<pre>Connection <strong>%1</strong>(%2) active</pre>")
-                       .arg(mPrimaryConnection.data(NmModel::NameRole).toString(),
-                            mPrimaryConnection.data(NmModel::ActiveConnectionTypeStringRole).toString()));
+        setToolTip(statustext::activeToolTip(
+            trTray("<pre>Connection <strong>%1</strong>(%2) active</pre>"),
+            mPrimaryConnection.data(NmModel::NameRole).toString(),
+            mPrimaryConnection.data(NmModel::ActiveConnectionTypeStringRole).toString()));
     }
     else
     {
@@ -192,8 +194,9 @@ void NmTrayStatus::notify(const QModelIndex &index, bool removing)
     const auto icon = static_cast<icons::Icon>(mActiveConnections.data(index, NmModel::IconTypeRole).toInt());
     auto reply = mNotification.Notify(
         trTray("NetworkManager(nm-tray)"), 0, icons::getIcon(icon, false).name(), summary,
-        body.arg(mActiveConnections.data(index, NmModel::ConnectionTypeStringRole).toString(),
-                 mActiveConnections.data(index, NmModel::NameRole).toString()),
+        statustext::notificationBody(body,
+                                     mActiveConnections.data(index, NmModel::ConnectionTypeStringRole).toString(),
+                                     mActiveConnections.data(index, NmModel::NameRole).toString()),
         {}, {}, -1);
 
     auto *watcher = new QDBusPendingCallWatcher{reply, this};

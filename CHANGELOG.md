@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-11-22
+
+### Fixed
+- Connection names (e.g. Wi-Fi SSIDs from nearby access points) are HTML-escaped before
+  going into the rich-text tooltip and notification body. Inherited from nm-tray 0.5.1.
+- `%N` sequences in a connection name are no longer expanded as placeholders.
+
 ## [0.1.0] - 2026-11-22
 
 ### Added
